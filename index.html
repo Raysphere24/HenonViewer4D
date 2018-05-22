@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>4D Data Viewer</title>
+	<style>
+		body { font-family: sans-serif; }
+
+		canvas { width: 600px; height: 400px; }
+		@media (min-width: 620px) and (min-height: 700px) {
+			canvas { width: 600px; height: 600px; }
+		}
+		@media (min-width: 860px) and (min-height: 940px) {
+			canvas { width: 840px; height: 840px; }
+		}
+		@media (min-width: 1100px) and (min-height: 1180px) {
+			canvas { width: 1080px; height: 1080px; }
+		}
+
+		fieldset { display: inline; }
+		#numVerticesDiv { text-align: center; }
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+
+	<div>
+		<fieldset>
+			<legend>Vertex count</legend>
+			<div id="numVerticesDiv">0</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Rotation Mode</legend>
+
+			<input id="xyzRotationRadio" type="radio" name="rotationMode" checked>
+			<label for="xyzRotationRadio">xy-z</label>
+
+			<input id="xywRotationRadio" type="radio" name="rotationMode">
+			<label for="xywRotationRadio">xy-w</label>
+
+			<input id="xzwRotationRadio" type="radio" name="rotationMode">
+			<label for="xzwRotationRadio">xz-w</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Period</legend>
+
+			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('Output1.4la')" checked>
+			<label for="period1Radio">1</label>
+
+			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('Output2.4la')">
+			<label for="period2Radio">2</label>
+
+			<input id="period3Radio" type="radio" name="period" onchange="loadModelFromFile('Output3.4la')">
+			<label for="period3Radio">3</label>
+
+			<input id="period4Radio" type="radio" name="period" onchange="loadModelFromFile('Output4.4la')">
+			<label for="period4Radio">4</label>
+
+			<input id="period5Radio" type="radio" name="period" onchange="loadModelFromFile('Output5.4la')">
+			<label for="period5Radio">5</label>
+		</fieldset>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
