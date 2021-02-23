@@ -6,15 +6,34 @@
 	<style>
 		body { font-family: sans-serif; }
 
-		canvas { width: 600px; height: 400px; }
-		@media (min-width: 620px) and (min-height: 700px) {
+		canvas { width: 300px; height: 300px; margin: 8px; }
+		@media (min-width: 500px) and (min-height: 800px) {
+			canvas { width: 450px; height: 450px; }
+		}
+		@media (min-width: 650px) and (min-height: 950px) {
 			canvas { width: 600px; height: 600px; }
 		}
-		@media (min-width: 860px) and (min-height: 940px) {
-			canvas { width: 840px; height: 840px; }
+		@media (min-width: 950px) and (min-height: 1250px) {
+			canvas { width: 900px; height: 900px; }
 		}
-		@media (min-width: 1100px) and (min-height: 1180px) {
-			canvas { width: 1080px; height: 1080px; }
+		@media (min-width: 1250px) and (min-height: 1550px) {
+			canvas { width: 1200px; height: 1200px; }
+		}
+		@media (min-aspect-ratio: 5/4) {
+			canvas { float: left; }
+
+			@media (min-height: 500px) {
+				canvas { width: 450px; height: 450px; }
+			}
+			@media (min-height: 650px) {
+				canvas { width: 600px; height: 600px; }
+			}
+			@media (min-height: 950px) {
+				canvas { width: 900px; height: 900px; }
+			}
+			@media (min-height: 1250px) {
+				canvas { width: 1200px; height: 1200px; }
+			}
 		}
 
 		fieldset { display: inline; }
@@ -26,12 +45,12 @@
 
 	<div>
 		<fieldset>
-			<legend>Vertex count</legend>
+			<legend>頂点数</legend>
 			<div id="numVerticesDiv">0</div>
 		</fieldset>
 
 		<fieldset>
-			<legend>Rotation Mode</legend>
+			<legend>回転モード</legend>
 
 			<input id="xyzRotationRadio" type="radio" name="rotationMode" checked>
 			<label for="xyzRotationRadio">xy-z</label>
@@ -44,24 +63,46 @@
 		</fieldset>
 
 		<fieldset>
-			<legend>Period</legend>
+			<legend>データ</legend>
 
-			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('Output1.4la')" checked>
-			<label for="period1Radio">1</label>
+			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('CS20.4pa')" checked>
+			<label for="period1Radio">CS20</label>
 
-			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('Output2.4la')">
-			<label for="period2Radio">2</label>
+			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('CS21.4pa')">
+			<label for="period2Radio">CS21</label>
 
-			<input id="period3Radio" type="radio" name="period" onchange="loadModelFromFile('Output3.4la')">
-			<label for="period3Radio">3</label>
+			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('SR.4pa')">
+			<label for="period1Radio">SR</label>
 
-			<input id="period4Radio" type="radio" name="period" onchange="loadModelFromFile('Output4.4la')">
-			<label for="period4Radio">4</label>
+			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('SR20.4pa')">
+			<label for="period1Radio">SR20</label>
 
-			<input id="period5Radio" type="radio" name="period" onchange="loadModelFromFile('Output5.4la')">
-			<label for="period5Radio">5</label>
+			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('SR21.4pa')">
+			<label for="period2Radio">SR21</label>
+
+			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('depth42.4pa')">
+			<label for="period2Radio">depth42</label>
 		</fieldset>
 	</div>
+
+	<p>
+		<h3>説明</h3>
+		4次元ジュリア集合をブラウザ上でインタラクティブに可視化します．
+		Javascript および WebGL を使用しています．
+		ブラウザの Javascript および Hardware Acceleration をオンにしてご利用ください．
+		<h3>操作</h3>
+		描画領域上をマウスでドラッグするか，トラックパッド・タッチパッドで2本指スクロール操作すると，回転できます．
+		平行移動や拡大縮小は実装されていません．
+		<h3>座標系と投影</h3>
+		4次元空間の各座標は x, y, z, w の文字で表されます．
+		投影処理はまず平行投影によって w 成分を除去したあと，z 軸上の視点から xy 平面上に配置されたスクリーンに透視投影します．
+		<h3>回転モード</h3>
+		3種類の回転モードを切り替えることで，4次元空間の回転を入力できます．
+		例えば xy-z は与えられた2次元変位を xy 平面上に表現し，その変位と z 軸との間での回転を行います．
+		一種類の回転モードで回転させるだけでは上手く4次元を見ることができないため，複数の回転モードを切り替えて操作することをおすすめします．
+		<h3>データ</h3>
+		大きいものは数十 MB のサイズがあるため，データのダウンロードに数秒の時間がかかることがあります．
+	</p>
 
 	<script src="script.js"></script>
 </body>

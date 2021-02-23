@@ -9,7 +9,7 @@ const xzwRotationRadio = document.getElementById("xzwRotationRadio");
 canvas.width = canvas.clientWidth * window.devicePixelRatio;
 canvas.height = canvas.clientHeight * window.devicePixelRatio;
 
-const modelFileName = "Output1.4la";
+const modelFileName = "CS20.4pa";
 
 /** @type {WebGLRenderingContext} */
 const gl = canvas.getContext("webgl");
@@ -147,7 +147,7 @@ let viewMatrix = [
 ];
 
 const aspect = canvas.width / canvas.height;
-const projMatrix = matProjection(aspect, 5, 15);
+const projMatrix = matProjection(aspect, 2.5, 5);
 
 gl.uniformMatrix4fv(projMatrixLocation, false, projMatrix);
 
