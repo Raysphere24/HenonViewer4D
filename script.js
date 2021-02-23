@@ -9,7 +9,7 @@ const xzwRotationRadio = document.getElementById("xzwRotationRadio");
 canvas.width = canvas.clientWidth * window.devicePixelRatio;
 canvas.height = canvas.clientHeight * window.devicePixelRatio;
 
-const modelFileName = "CS20.4pa";
+const modelFileName = "depth42.4pa";
 
 /** @type {WebGLRenderingContext} */
 const gl = canvas.getContext("webgl");

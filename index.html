@@ -65,7 +65,10 @@
 		<fieldset>
 			<legend>データ</legend>
 
-			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('CS20.4pa')" checked>
+			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('depth42.4pa')" checked>
+			<label for="period2Radio">depth42</label>
+
+			<input id="period1Radio" type="radio" name="period" onchange="loadModelFromFile('CS20.4pa')">
 			<label for="period1Radio">CS20</label>
 
 			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('CS21.4pa')">
@@ -79,9 +82,6 @@
 
 			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('SR21.4pa')">
 			<label for="period2Radio">SR21</label>
-
-			<input id="period2Radio" type="radio" name="period" onchange="loadModelFromFile('depth42.4pa')">
-			<label for="period2Radio">depth42</label>
 		</fieldset>
 	</div>
 
@@ -101,7 +101,7 @@
 		例えば xy-z は与えられた2次元変位を xy 平面上に表現し，その変位と z 軸との間での回転を行います．
 		一種類の回転モードで回転させるだけでは上手く4次元を見ることができないため，複数の回転モードを切り替えて操作することをおすすめします．
 		<h3>データ</h3>
-		大きいものは数十 MB のサイズがあるため，データのダウンロードに数秒の時間がかかることがあります．
+		数十MB のサイズがあるため，データのダウンロードに数秒の時間がかかることがあります．
 	</p>
 
 	<script src="script.js"></script>
