@@ -272,7 +272,7 @@ document.addEventListener("drop", ev => {
 }, false);
 
 canvas.onmousemove = ev => {
-	// ignore other than only left button is pressed
+	// ignore unless only left button is pressed
 	if (ev.buttons !== 1) return;
 
 	const dx = ev.movementX / 128;
